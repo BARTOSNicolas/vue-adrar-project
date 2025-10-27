@@ -1,13 +1,14 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <Header />
-  <HelloWorld msg="Modified App" />
-  <Footer />
+  <div class="min-h-screen flex flex-col justify-between items-center">
+    <Header />
+    <RouterView />
+    <Footer />
+  </div>
 </template>
 
 <style scoped>

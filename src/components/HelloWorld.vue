@@ -13,7 +13,7 @@ let changeColor = computed(() => {
 </script>
 
 <template>
-  <div class="container mx-auto flex justify-center items-center h-screen">
+  <div class="container mx-auto flex justify-center items-center">
     <div class="card bg-base-100 w-96 shadow-xl p-8">
       <h1 class="title text-4xl text-center pb-8">{{ msg }}</h1>
       <button
