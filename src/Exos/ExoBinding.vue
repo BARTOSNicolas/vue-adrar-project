@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, computed} from "vue";
 
 const name = ref("Mario")
 const age = ref(30)
@@ -18,6 +18,11 @@ function updateFeticheNumber() {
   feticheNumber.value = random()
 }
 
+const makeABug = computed(() => {
+  return feticheNumber.value
+})
+
+
 </script>
 
 <template>
@@ -34,7 +39,7 @@ function updateFeticheNumber() {
         <input type="text" v-model="name" class="input" />
         <p>Âge : <span class="badge badge-primary">{{age}} ans</span></p>
         <p>Âge + 10 : <span class="badge badge-secondary">{{updateAge()}} ans</span></p>
-        <p>Nb Fétiche: <span class="badge badge-accent mr-2">{{ feticheNumber }}</span> <span class="btn btn-xs btn-warning" @click="() => {updateFeticheNumber()}">Change</span>
+        <p>Nb Fétiche: <span class="badge badge-accent mr-2">{{ makeABug }}</span> <span class="btn btn-xs btn-warning" @click="() => {updateFeticheNumber()}">Change</span>
         </p>
       </div>
     </div>

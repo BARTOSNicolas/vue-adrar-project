@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, computed} from "vue";
 const number = ref(0)
 const text = ref("")
 const text2 = ref("")

@@ -20,12 +20,18 @@ const router = createRouter({
                 {path: "exo-ref", name: "Exo Ref", component: () => import("./Exos/ExoRef.vue")},
                 {path: "exo-binding", name: "Exo Binding", component: () => import("./Exos/ExoBinding.vue")},
                 {path: "exo-event", name: "Exo Event", component: () => import("./Exos/ExoEvent.vue")},
+                {path: "exo-watchers", name: "Exo Watchers", component: () => import("./Exos/ExoWatchers.vue")},
+                {path: "exo-dynamic-style", name: "Exo Dynamic Style", component: () => import("./Exos/ExoDynamicStyle.vue")},
+                {path: "exo-vif-vfor", name: "Exo Vif Vfor", component: () => import("./Exos/ExoVifVfor.vue")},
             ]},
         {path: "/lessons", name: "Leçons", children: [
                 {path: "text-interpolation", name: "Text interpolation", component: () => import("./Lessons/TextInterpolation.vue")},
                 {path: "inline-templating", name: "Inline templating", component: () => import("./Lessons/Inline-templating.vue")},
                 {path: "attribute-binding", name: "Attribute Binding", component: () => import("./Lessons/Attribute-binding.vue")},
                 {path: "event-binding", name: "Event Binding", component: () => import("./Lessons/Event-binding.vue")},
+                {path: "two-way-binding", name: "Two Way Binding", component: () => import("./Lessons/Two-way-binding.vue")},
+                {path: "computed-properties", name: "Computed Properties", component: () => import("./Lessons/Computed-properties.vue")},
+                {path: "watchers", name: "Watchers", component: () => import("./Lessons/Watchers.vue")},
             ]},
         {
             path: '/links',
