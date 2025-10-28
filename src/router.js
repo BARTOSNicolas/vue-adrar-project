@@ -32,6 +32,9 @@ const router = createRouter({
                 {path: "two-way-binding", name: "Two Way Binding", component: () => import("./Lessons/Two-way-binding.vue")},
                 {path: "computed-properties", name: "Computed Properties", component: () => import("./Lessons/Computed-properties.vue")},
                 {path: "watchers", name: "Watchers", component: () => import("./Lessons/Watchers.vue")},
+                {path: "conditional-rendering", name: "Conditional Rendering", component: () => import("./Lessons/Conditional-rendering.vue")},
+                {path: "list-rendering", name: "List Rendering", component: () => import("./Lessons/List-rendering.vue")},
+                {path: "dynamic-style", name: "Dynamic Style", component: () => import("./Lessons/Dynamic-styling.vue")},
             ]},
         {
             path: '/links',
