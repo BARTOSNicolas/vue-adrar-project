@@ -2,7 +2,7 @@
 <div class="container mx-auto p-4 md:p-8">
     <div class="text-center mb-8 md:mb-12">
     <h1 class="text-4xl md:text-5xl font-extrabold text-primary">
-        L'interpolation de texte dans Vue.js
+        L'interpolation de texte dans <span class="text-secondary">Vue.js</span>
     </h1>
     <p class="text-lg md:text-xl text-base-content opacity-75 mt-2 max-w-2xl mx-auto">
         L'interpolation permet d'insérer dynamiquement des valeurs JavaScript dans le DOM.

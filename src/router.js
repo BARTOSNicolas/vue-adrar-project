@@ -11,18 +11,21 @@ const router = createRouter({
             // Alias en option
             alias: '/home',
             // Nom de la route
-            name: 'Home',
+            name: 'Accueil',
             // Composant a afficher avec import
             component: Home
         },
+        // Avec composants Enfants
         {path: "/exercices", name: "Exercices", children: [
                 {path: "exo-ref", name: "Exo Ref", component: () => import("./Exos/ExoRef.vue")},
                 {path: "exo-binding", name: "Exo Binding", component: () => import("./Exos/ExoBinding.vue")},
+                {path: "exo-event", name: "Exo Event", component: () => import("./Exos/ExoEvent.vue")},
             ]},
         {path: "/lessons", name: "Leçons", children: [
                 {path: "text-interpolation", name: "Text interpolation", component: () => import("./Lessons/TextInterpolation.vue")},
-                {path: "inline-templating", name: "Inline templating", component: () => import("./Lessons/inline-templating.vue")},
-                {path: "attribute-binding", name: "Attribute Binding", component: () => import("./Lessons/attribute-binding.vue")},
+                {path: "inline-templating", name: "Inline templating", component: () => import("./Lessons/Inline-templating.vue")},
+                {path: "attribute-binding", name: "Attribute Binding", component: () => import("./Lessons/Attribute-binding.vue")},
+                {path: "event-binding", name: "Event Binding", component: () => import("./Lessons/Event-binding.vue")},
             ]},
         {
             path: '/links',
@@ -34,7 +37,7 @@ const router = createRouter({
         },
         {
             // Version minimal
-            path: '/about', name: "About", component: About
+            path: '/about', name: "A Propos", component: About
         },
     ]
 })
