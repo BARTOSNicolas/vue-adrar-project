@@ -2,26 +2,33 @@
 import { computed } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
-// 1. accès aux infos du router
+// accès aux infos du router
 const router = useRouter()
 const route = useRoute()
 
-// 2. on construit la liste routes avec enfants regroupés
+const HIDDEN_ROUTE_NAMES = ["Details", "404"]
+// on construit la liste routes avec enfants regroupés
 const routes = computed(() => {
   const all = router.getRoutes()
       .filter(r => !r.aliasOf && r.name)
-      .map(r => ({ path: r.path, name: r.name }))
+      .map(r => ({
+        path: r.path,
+        name: r.name
+      }))
+
+  // on enlève les routes dont le name est dans HIDDEN_ROUTE_NAMES
+  const visible = all.filter(r => !HIDDEN_ROUTE_NAMES.includes(r.name))
 
   // parents = ceux qui ne sont pas eux-mêmes enfants de quelqu'un d'autre
-  return all
-      .filter(p => !all.some(c => c !== p && p.path.startsWith(c.path + '/')))
+  return visible
+      .filter(p => !visible.some(c => c !== p && p.path.startsWith(c.path + '/')))
       .map(p => ({
         ...p,
-        children: all.filter(c => c !== p && c.path.startsWith(p.path + '/'))
+        children: visible.filter(c => c !== p && c.path.startsWith(p.path + '/'))
       }))
 })
 
-// 3. savoir si un parent est "actif" parce qu'on est sur un de ses enfants
+// savoir si un parent est "actif" parce qu'on est sur un de ses enfants
 const isParentActive = (parent) => {
   return parent.children.some(child =>
       route.path === child.path || route.path.startsWith(child.path + '/')

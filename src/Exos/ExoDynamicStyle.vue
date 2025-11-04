@@ -1,5 +1,5 @@
 <script setup>
-import {ref, watch} from "vue";
+import {ref, computed} from "vue";
 
 const isActive3 = ref(false)
 const isActive4 = ref(false)
@@ -10,6 +10,7 @@ const isWorld = ref(false)
 const showH2 = ref(false)
 
 const color = ref("")
+const test = ref("")
 
 const checkHello = (e) => {
   isHello.value = false
@@ -26,6 +27,16 @@ const checkHello = (e) => {
 const clickMe = (event, style) => {
   event.target.parentElement.classList.toggle(style)
 }
+// Pour de style avec conditions
+const styleObject = computed(() => ({
+  backgroundColor: isActive3.value ? "red" : "",
+}))
+
+// Pour des classes dynamiques
+const dynamicClass = computed(() => ({
+  "bg-primary": true, // ou condition,
+  "text-green-500 font-bold": false // condition,
+}))
 </script>
 
 <template>
@@ -44,6 +55,8 @@ const clickMe = (event, style) => {
         <button class="btn" @click="isActive4 = !isActive4">Click Me</button>
       </div>
     </div>
+
+    <div class="card w-32 h-24 shadow-xl flex justify-center items-center" :style="styleObject">Computed Style</div>
 
     <div class=" card bg-100 shadow-xl w-full p-8">
       <div>
